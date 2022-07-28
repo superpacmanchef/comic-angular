@@ -1,0 +1,109 @@
+<div id="login-page">
+  <div id="login-register-container">
+    <div id="login-register-switch">
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="showLogin"
+        class="form-switch"
+        (click)="showLoginClick()"
+      >
+        <h2>Login</h2>
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngIf="!showLogin"
+        class="form-switch"
+        (click)="showLoginClick()"
+      >
+        <h2>Login</h2>
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        *ngIf="showReg"
+        class="form-switch"
+        (click)="showRegClick()"
+      >
+        <h2>Register</h2>
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngIf="!showReg"
+        class="form-switch"
+        (click)="showRegClick()"
+      >
+        <h2>Register</h2>
+      </button>
+    </div>
+
+    <div class="forms" id="login-form" *ngIf="showLogin">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput id="email" formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            id="password"
+            type="password"
+            formControlName="password"
+            appearance="fill"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+      </form>
+    </div>
+
+    <div class="forms" id="register-form" *ngIf="showReg">
+      <form [formGroup]="regForm" (ngSubmit)="register()">
+        <mat-form-field appearance="fill">
+          <mat-label>Username</mat-label>
+          <input matInput id="username" formControlName="username" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput id="email-reg" formControlName="email" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            id="password-reg"
+            type="password"
+            formControlName="password"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Repeat Password</mat-label>
+          <input
+            matInput
+            id="password-repeat"
+            type="password"
+            formControlName="passwordRepeat"
+          />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" [disabled]="regForm.invalid">
+          Register
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

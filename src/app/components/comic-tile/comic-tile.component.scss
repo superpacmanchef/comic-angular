@@ -1,0 +1,32 @@
+@import "../../scss_globals/mixins";
+
+:hover {
+  cursor: pointer;
+}
+
+#comic-card {
+  background-color: rgba(83, 82, 82, 0.753);
+  box-shadow: 5px 2px 2px black;
+  align-items: center;
+  text-align: center;
+  border-radius: 0.5rem;
+  height: 100%;
+
+  @include md {
+    padding: 1rem;
+  }
+
+  #comic-cover {
+    :hover {
+      transform: scale(1.05);
+    }
+
+    width: 100%;
+
+    img {
+      transition: all 300ms ease-in-out;
+      width: 90%;
+      object-fit: contain;
+    }
+  }
+}

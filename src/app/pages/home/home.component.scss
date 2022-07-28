@@ -1,0 +1,29 @@
+@import "../../scss_globals/mixins";
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  mat-form-field {
+    flex: 1;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: 10rem;
+    width: 40vw;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  #selects {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+  }
+}

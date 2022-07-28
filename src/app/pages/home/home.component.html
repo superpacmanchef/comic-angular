@@ -1,0 +1,24 @@
+<div id="form">
+  <div id="selects">
+    <mat-form-field appearance="outline" class="filter-selects">
+      <mat-label>Publishers</mat-label>
+      <mat-select [(value)]="publisher">
+        <mat-option value="All"> All </mat-option>
+        <mat-option value="MARVEL COMICS"> Marvel </mat-option>
+        <mat-option value="DARK HORSE"> Dark Horse </mat-option>
+        <mat-option value="IMAGE COMICS"> Image </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-selects">
+      <mat-label>Week</mat-label>
+      <mat-select [(value)]="week">
+        <mat-option value="0"> Last Week </mat-option>
+        <mat-option value="1"> Current Week </mat-option>
+        <mat-option value="2"> Next Week </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button color="primary" (click)="filter()">Submit</button>
+</div>
+<app-comic-page [comics]="filteredComics"></app-comic-page>

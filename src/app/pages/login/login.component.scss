@@ -1,0 +1,62 @@
+@import "../../scss_globals/mixins";
+
+div {
+  display: flex;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+
+  * {
+    height: fit-content;
+    margin: 0;
+    padding: 0.5rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.form-switch {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  border-radius: 0;
+}
+
+#login-page {
+  justify-content: center;
+  align-items: center;
+}
+
+#login-register-container {
+  width: 50vw;
+  justify-self: center;
+  min-height: 50vh;
+  background-color: rgba(83, 82, 82, 0.753);
+  border-radius: 0.5rem;
+  box-shadow: 5px 4px 4px rgba(2, 0, 0, 0.6);
+  flex-direction: column;
+  margin-top: 10vh;
+  overflow: hidden;
+
+  @include md {
+    width: 30vw;
+  }
+
+  .forms {
+    align-self: center;
+    flex: 1;
+    width: 100%;
+
+    @include md {
+      width: 60%;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<div id="modal-header">
+  <button mat-button (click)="onCloseClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div id="modal-comic-main">
+  <div>
+    <div id="cover-container">
+      <img [src]="comic.image" />
+    </div>
+    <div id="comic-info-container">
+      <h1>{{ comic.title }} #{{ comic.issue_no }}</h1>
+
+      <div class="comic-detail-container">
+        <h2 class="comic-detail-heading">Publisher</h2>
+        <h3 class="comic-detail">{{ comic.publisher }}</h3>
+      </div>
+
+      <div class="comic-detail-container">
+        <h2 class="comic-detail-heading">Creators</h2>
+        <h3 class="comic-detail">{{ comic.creators }}</h3>
+      </div>
+
+      <div class="comic-detail-container">
+        <h2 class="comic-detail-heading">Description</h2>
+        <h3 class="comic-detail">{{ comic.description }}</h3>
+      </div>
+
+      <div class="comic-detail-container">
+        <h2 class="comic-detail-heading">Release Date</h2>
+        <h3 class="comic-detail">{{ comic.release_date }}</h3>
+      </div>
+
+      <div class="comic-detail-container">
+        <h2 class="comic-detail-heading">ID</h2>
+        <h3 class="comic-detail">{{ comic.diamond_id }}</h3>
+      </div>
+
+      <div class="comic-detail-container" *ngIf="loged">
+        <button
+          *ngIf="!inCollection"
+          (click)="addToCollection()"
+          mat-raised-button
+          color="primary"
+        >
+          Add to Collection
+        </button>
+        <button
+          *ngIf="inCollection"
+          (click)="removeFromCollection()"
+          mat-raised-button
+          color="primary"
+        >
+          Remove from Collection
+        </button>
+
+        <button
+          *ngIf="!inPullList"
+          (click)="addToPullList()"
+          mat-raised-button
+          color="primary"
+        >
+          Add to Pull List
+        </button>
+        <button
+          *ngIf="inPullList"
+          (click)="removeFromPullList()"
+          mat-raised-button
+          color="primary"
+        >
+          Remove from Pull List
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@import "./scss_globals/mixins";
+
+#logo-button-div {
+  flex: 1;
+}
+
+main {
+  margin: 0.5rem;
+
+  @include md {
+    margin: 2rem;
+  }
+
+  margin-bottom: 1rem;
+}

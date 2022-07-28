@@ -1,0 +1,66 @@
+<div id="comics-page">
+  <div *ngIf="totalPageNumber !== 0" class="comic-page-nav">
+    <button
+      mat-raised-button
+      [disabled]="pageNumber === 0"
+      color="primary"
+      (click)="pageChange(pageNumber - 1)"
+    >
+      Prev
+    </button>
+    <button
+      mat-raised-button
+      [disabled]="pageNumber === totalPageNumber - 1"
+      color="primary"
+      (click)="pageChange(pageNumber + 1)"
+    >
+      Next
+    </button>
+  </div>
+
+  <div
+    id="grid"
+    *ngIf="
+      comics !== null && (currentPageComics | async) as pageComics;
+      else loading
+    "
+  >
+    <div class="grid-item" *ngFor="let comic of pageComics">
+      <app-comic-tile
+        [comic]="comic"
+        (click)="openDialog(comic)"
+      ></app-comic-tile>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <div id="loading">
+      <h1>Loading</h1>
+    </div>
+  </ng-template>
+
+  <div id="no-comics" *ngIf="totalPageNumber === 0">
+    <h1>No Comics Found</h1>
+  </div>
+
+  <div style="padding: 1rem"></div>
+
+  <div *ngIf="totalPageNumber !== 0" class="comic-page-nav">
+    <button
+      mat-raised-button
+      [disabled]="pageNumber === 0"
+      color="primary"
+      (click)="pageChange(pageNumber - 1)"
+    >
+      Prev
+    </button>
+    <button
+      mat-raised-button
+      [disabled]="pageNumber === totalPageNumber - 1"
+      color="primary"
+      (click)="pageChange(pageNumber + 1)"
+    >
+      Next
+    </button>
+  </div>
+</div>
