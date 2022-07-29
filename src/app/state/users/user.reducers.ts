@@ -5,10 +5,14 @@ import * as UserActionTypes from './user.actions';
 export type UserType = {
   collection: Comic_ShortBoxed_SplitTitle_Image[];
   pullList: string[];
+  username: string;
+  email: string;
 };
 const initialState: UserType = {
   collection: [],
   pullList: [],
+  username: '',
+  email: '',
 };
 
 export const userReducer = createReducer(

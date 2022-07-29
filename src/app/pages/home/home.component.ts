@@ -8,7 +8,6 @@ import { UserFacade } from 'src/app/state/users/user.facade';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [RESTAPIService],
 })
 export class HomeComponent implements OnInit {
   constructor(private service: RESTAPIService, private userFacade: UserFacade) {

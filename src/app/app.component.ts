@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   loged!: boolean;
 
   ngOnInit(): void {
-    this.userFacade.user$.subscribe(
-      (user) => (this.loged = user ? true : false)
-    );
+    this.userFacade.user$.subscribe((user) => {
+      this.loged = user.email !== '' ? true : false;
+    });
   }
 }

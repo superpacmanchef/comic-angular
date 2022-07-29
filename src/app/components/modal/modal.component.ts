@@ -23,9 +23,7 @@ export class ModalComponent implements OnInit {
   inCollection!: boolean;
   inPullList!: boolean;
 
-  get loged() {
-    return this.userService.isLoged;
-  }
+  loged!: boolean;
 
   checkInPullList(pullList: string[]) {
     const t = pullList.filter(
@@ -73,6 +71,10 @@ export class ModalComponent implements OnInit {
 
     this.pullList$.subscribe((pullList) => {
       this.checkInPullList(pullList);
+    });
+
+    this.userFacade.user$.subscribe((user) => {
+      this.loged = user.email !== '' ? true : false;
     });
   }
 }

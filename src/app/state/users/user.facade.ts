@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store, ActionsSubject } from '@ngrx/store';
 import { select } from '@ngrx/store';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { getCollection, getPullList, getUser } from '..';
 import * as UserActions from './user.actions';
 
@@ -14,6 +14,8 @@ export class UserFacade {
   user$ = this.store$.select(getUser);
   collection$ = this.store$.select(getCollection);
   pullList$ = this.store$.select(getPullList);
+
+  loged$ = this.user$.pipe(map((user) => (user.email === '' ? true : false)));
 
   mutations$ = this.actions$.pipe(
     filter(

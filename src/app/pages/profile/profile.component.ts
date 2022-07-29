@@ -11,10 +11,7 @@ import { UserFacade } from 'src/app/state/users/user.facade';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(
-    private userService: UserService,
-    private userFacade: UserFacade
-  ) {
+  constructor(private userFacade: UserFacade) {
     this.userFacade.loadUser();
   }
 
@@ -25,6 +22,7 @@ export class ProfileComponent implements OnInit {
 
   pullList$ = this.userFacade.pullList$;
   collection$ = this.userFacade.collection$;
+  user$ = this.userFacade.user$;
 
   showCollectionClick() {
     this.showCollection = true;
@@ -34,10 +32,6 @@ export class ProfileComponent implements OnInit {
   showPullListClick() {
     this.showCollection = false;
     this.showPullList = true;
-  }
-
-  get user() {
-    return this.userService.user;
   }
 
   deletePullList(comicName: string) {
